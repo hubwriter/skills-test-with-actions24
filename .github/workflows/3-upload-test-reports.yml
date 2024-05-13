@@ -30,6 +30,7 @@ jobs:
       - id: get_step
         run: |
           echo "$(cat ./.github/steps/-step.txt)"
+          echo "template: ${{ github.event.repository.is_template }}"
           echo "current_step=$(cat ./.github/steps/-step.txt)" >> $GITHUB_OUTPUT
     outputs:
       current_step: ${{ steps.get_step.outputs.current_step }}
